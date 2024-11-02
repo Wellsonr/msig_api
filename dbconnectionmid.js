@@ -8,10 +8,10 @@ const dbname = 'u118184673_DB'
 module.exports = () => {
     return {
         myconn: mysql.createConnection({
-            host: dbhost || '153.92.15.21',
-            user: dbuser || 'u563196813_UN',
-            password: dbpassword || '#VPuWv6&',
-            database: dbname || 'u563196813_DB',
+            host: dbhost,
+            user: dbuser,
+            password: dbpassword,
+            database: dbname,
             timezone: "Z+7",
             multipleStatements: true,
             connectTimeout: 60000
