@@ -4,16 +4,16 @@ module.exports = {
             const { myconn } = require(`../dbconnectionmid`)();
             myconn.query(`SELECT urut, namaproduk, aktif FROM tblproduk`, (err, res) => {
                 if (err) {
-                    console.error("Database query error:", err);
-                    myconn.end(); // Close the connection on error
+                    myconn.end();
                     return reject(err);
+                } else {
+                    myconn.end();
+                    resolve(res);
                 }
-                myconn.end(); // Close the connection after query
-                resolve(res);
             });
         });
     },
-    
+
     addProduk: (args, req) => {
         return new Promise((resolve, reject) => {
             const { myconn } = require(`../dbconnectionmid`)();
@@ -32,7 +32,7 @@ module.exports = {
             });
         });
     },
-    
+
     simpanForm: (args, req) => {
         const {
             name,
@@ -64,7 +64,7 @@ module.exports = {
             relation,
             jamin // Make sure `jamin` is included if needed, or remove from columns if not required
         } = args.input;
-    
+
         return new Promise((resolve, reject) => {
             const { myconn } = require(`../dbconnectionmid`)();
             const sql = `
@@ -79,7 +79,7 @@ module.exports = {
                 ) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
             `;
-    
+
             myconn.query(
                 sql,
                 [
@@ -123,5 +123,5 @@ module.exports = {
                 }
             );
         });
-    }    
+    }
 };
