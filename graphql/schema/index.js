@@ -58,6 +58,8 @@ enum Gender{
 type tblProduk {
     urut: Int
     namaproduk: String
+    kodeproduk: String
+    harga: Float
     aktif: Boolean
 }
 
@@ -94,6 +96,7 @@ input tblForm {
 
 type query{
     listProduk: [tblProduk]
+    getProduk(usia: String!, mpp: String!, perioddana: Int, ispria: Boolean, danaupto: String): [tblProduk]
 }
 type mutation{
     addProduk(namaproduk: String!): Boolean
