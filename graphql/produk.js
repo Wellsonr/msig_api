@@ -44,17 +44,17 @@ module.exports = {
                         if (danaupto?.toUpperCase() === "UP1") {
                             xDataBersih = {
                                 ...xDataKotor,
-                                harga: (ispria ? xDataKotor.pria : xDataKotor.wanitaa) * (perioddana - 10) 
+                                harga: (ispria ? xDataKotor.pria : xDataKotor.wanitaa) * (perioddana - 2) 
                             };
                         } else if (danaupto?.toUpperCase() === "UP2") {
                             xDataBersih = {
                                 ...xDataKotor,
-                                harga: (ispria ? xDataKotor.priab : xDataKotor.wanitab) * (perioddana - 10) 
+                                harga: (ispria ? xDataKotor.priab : xDataKotor.wanitab) * (perioddana - 2) 
                             };
                         } else {
                             xDataBersih = {
                                 ...xDataKotor,
-                                harga: (ispria ? xDataKotor.priac : xDataKotor.wanitac) * (perioddana - 10) 
+                                harga: (ispria ? xDataKotor.priac : xDataKotor.wanitac) * (perioddana - 2) 
                             };
                         }
                         resolve([xDataBersih]);
